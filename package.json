@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "dependencies": {
+    "cripweb": "^1.0.0",
+    "gulp": "^3.9.0"
+  }
+}

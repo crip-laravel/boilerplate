@@ -1,6 +1,6 @@
 <?php namespace App\Listeners;
 
-use Crip\UserManager\App\Events\UserCreateValidateEvent;
+use Crip\UserManager\App\Events\UserCreateValidate;
 use Validator;
 
 /**
@@ -18,18 +18,20 @@ class EventListener
     }
 
     /**
-     * Handle the event.
+     * Handle the UserCreateValidateEvent event.
      *
-     * @param  UserCreateValidateEvent $event
+     * @param  UserCreateValidate $event
      * @return \Illuminate\Validation\Validator
      */
-    public function handle(UserCreateValidateEvent $event)
+    public function handle(UserCreateValidate $event)
     {
-        return Validator::make($event->request->all(), [
-            'email' => 'email|required',
+        $validator = Validator::make($event->request->all(), [
+            'email' => 'email|required|unique:users,email',
             'name' => 'required',
             'password' => 'required|min:6',
             'password_confirmation' => 'required|min:6|same:password'
         ]);
+
+        return $validator;
     }
 }
