@@ -136,7 +136,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\PackageServiceProvider::class,
         // My custom packages Service Providers...
-        Crip\FileManager\CripFilemanagerServiceProvider::class,
+        Crip\FileManager\CripFileManagerServiceProvider::class,
         Crip\UserManager\CripUserManagerServiceProvider::class,
         /*
          * 3rd party providers
@@ -216,6 +216,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
     ],
 
 ];

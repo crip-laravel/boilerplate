@@ -89,7 +89,7 @@
                    data-toggle="dropdown"
                    role="button">{!! trans('navigation.language') !!} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    @foreach(LaravelLocalization::getSupportedLocales() as $locale_key => $properties)
+                    @foreach(app('laravellocalization')->getSupportedLocales() as $locale_key => $properties)
                         <li class="@if($locale_key == App::getLocale()) active @endif">
                             <a href="{!! LaravelLocalization::getLocalizedURL($locale_key) !!}"
                                title="{!! $properties['native'] !!}"
